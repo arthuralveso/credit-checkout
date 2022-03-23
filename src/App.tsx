@@ -1,9 +1,18 @@
 import React from 'react';
+import { Card } from './components/Card/';
+import { InputValueProvider } from './hooks/InputValueContext';
+import { GlobalStyle } from './styles/global';
+import { Layout } from './pages/Layout'
 
 
 export function App() {
   return (
-    <h1></h1>
+    <InputValueProvider>
+      <Layout />
+      <Card />
+
+      <GlobalStyle />
+    </InputValueProvider>
   );
 }
 

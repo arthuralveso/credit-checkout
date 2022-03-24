@@ -10,29 +10,35 @@ small {
     color: var(--danger);
 }
 
-div {
+`;
+
+export const InputWrapper = styled.div`
     display: flex;
-    width: 100%;
     justify-content: space-between;
+    
+    input {
+        width: 330px
+    }
+`
+
+interface IInputProps {
+    validationError: boolean
 }
 
-select {
-	outline: none;
+export const Select = styled.select<IInputProps>`
+    outline: none;
 	border: none;
     background-color: transparent;
     font-size: 16px;
     color: #3C3C3C;
     margin-top: 50px;
     width: 100%;
-    border-bottom: 2px solid var(--input-color);
-    
+    border-bottom: 2px solid ${({ validationError }) => validationError ? '#EB5757' : '#C6C6C6'};
 
-}
+
 `;
 
-interface IInputProps {
-    validationError: boolean
-}
+
 
 export const Input = styled.input<IInputProps>`
     outline: none;
@@ -46,6 +52,7 @@ export const Input = styled.input<IInputProps>`
     width: 100%;
     border-bottom: 2px solid ${({ validationError }) => validationError ? '#EB5757' : '#C6C6C6'};
 
+    
     &::placeholder {
     color: var(--input-color)
 }

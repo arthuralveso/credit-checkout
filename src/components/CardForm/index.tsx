@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useCardValue } from '../../hooks/CardValueContext';
-import { Button, Form, Input } from './styles';
+import { Button, Form, Input, InputWrapper, Select } from './styles';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 
@@ -17,9 +17,9 @@ interface ICardInformation {
 const schema = yup.object({
     cardNumber: yup.string().min(16, 'Número do cartão inválido').required('Número do cartão inválido'),
     ownerName: yup.string().max(15).required('Insira seu nome completo'),
-    date: yup.string().min(4).required('Data inválida'),
-    cvv: yup.number().min(3).positive().integer().required('Código inválido'),
-    numberOfInstallments: yup.string().required(),
+    date: yup.string().min(5, 'Data inválida').required('Data inválida'),
+    cvv: yup.string().min(3, 'Código inválido').required('Código inválido'),
+    numberOfInstallments: yup.string().required('Insira o número de parcelas'),
 }).required();
 
 export function CardForm() {
@@ -53,37 +53,43 @@ export function CardForm() {
                     validationError={errors.ownerName ? true : false}
                 />
                 <small>{errors.ownerName?.message}</small>
-                <div>
-                    <Input
-                        {...register('date')}
-                        placeholder='Validade'
-                        maxLength={4}
-                        onChange={event => handleToggleInput(event.target.value, 3)}
-                        validationError={errors.date ? true : false}
-                    />
-                    <small>{errors.date?.message}</small>
+                <InputWrapper>
+                    <div>
+                        <Input
+                            {...register('date')}
+                            placeholder='Validade'
+                            maxLength={5}
+                            onChange={event => handleToggleInput(event.target.value, 3)}
+                            validationError={errors.date ? true : false}
+                        />
+                        <small>{errors.date?.message}</small>
+                    </div>
 
-                    <Input
-                        {...register('cvv')}
-                        placeholder='CVV'
-                        maxLength={3}
-                        type='text'
-                        validationError={errors.cvv ? true : false}
-                    />
-                    <small>{errors.cvv?.message}</small>
-                </div>
+                    <div>
+                        <Input
+                            {...register('cvv')}
+                            placeholder='CVV'
+                            maxLength={3}
+                            type='text'
+                            validationError={errors.cvv ? true : false}
+                        />
+                        <small>{errors.cvv?.message}</small>
+                    </div>
+                </InputWrapper>
 
-                <select
+                <Select
                     {...register('numberOfInstallments')}
                     placeholder='Numero de parcelas'
-                    defaultValue={'1'}
+                    validationError={errors.numberOfInstallments ? true : false}
                 >
+                    <option value="" disabled selected>Numero de parcelas</option>
                     <option value="5">5x R$ 1.000,00 sem juros</option>
                     <option value="4">4x R$ 1.200,00 sem juros</option>
                     <option value="3">3x R$ 1.800,00 sem juros</option>
                     <option value="2">2x R$ 2.500,00 sem juros</option>
                     <option value="1">1x R$ 5.000,00 sem juros</option>
-                </select>
+                </Select>
+                <small>{errors.numberOfInstallments?.message}</small>
 
                 <Button type="submit">Continuar</Button>
             </Form>

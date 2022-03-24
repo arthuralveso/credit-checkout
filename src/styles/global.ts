@@ -3,7 +3,8 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
     :root {
         --background: #ffffff;
-        --card-background: radial-gradient(73.06% 104.31% at 14.59% 58.06%, #5A7589 0%, #436175 33.7%, #315266 57.29%, #124768 100%);
+        --card-background-filled: radial-gradient(73.06% 104.31% at 14.59% 58.06%, #5A7589 0%, #436175 33.7%, #315266 57.29%, #124768 100%);
+        --card-background-empty: radial-gradient(73.06% 104.31% at 14.59% 58.06%, #BFBFBF 0%, #A8A8A8 33.7%, #727272 100%);
         --primary: #4BDE95;
         --confirm-button: #308E5F;
 
@@ -48,7 +49,7 @@ export const GlobalStyle = createGlobalStyle`
         transition: all 0.2s;
     }
 
-    h1, h2, h3, h4, h5, h6, strong {
+    h1, h2, h3, h4, h5, h6 {
         font-weight: 400;
     }
 

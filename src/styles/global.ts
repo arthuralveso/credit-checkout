@@ -12,6 +12,8 @@ export const GlobalStyle = createGlobalStyle`
 
         --input-color: #C6C6C6;
 
+        --danger: #EB5757
+
     }
     
 

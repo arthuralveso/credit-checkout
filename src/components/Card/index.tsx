@@ -1,9 +1,9 @@
 import React from 'react'
-import { useInputValue } from '../../hooks/InputValueContext'
+import { useCardValue } from '../../hooks/CardValueContext'
 import { Container, CardInformation } from './styles';
 
 export function Card() {
-    const { value } = useInputValue();
+    const { cardData } = useCardValue();
     return (
 
         <Container>
@@ -12,10 +12,10 @@ export function Card() {
 
 
                 <CardInformation>
-                    <p>{value.numero}</p>
+                    <p>{cardData.numero}</p>
                     <span>
-                        <h4>{value.nome}</h4>
-                        <h4>{value.vencimento}</h4>
+                        <h4>{cardData.nome}</h4>
+                        <h4>{cardData.vencimento}</h4>
                     </span>
 
                 </CardInformation>

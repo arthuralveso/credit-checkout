@@ -1,30 +1,29 @@
 import React, { createContext, ReactNode, useContext, useState } from "react";
 
-interface InputValueProps {
+interface ICardProps {
     children: ReactNode
 }
 
-interface IValue {
+interface ICard {
     numero: string;
     nome: string;
     vencimento: string;
-    cvv: string;
 }
 
-interface InputValueContextData {
-    value: IValue;
+interface ICardContextData {
+    cardData: ICard;
     handleToggleInput: (value: string, key: number) => void
 }
 
-export const InputValueContext = createContext<InputValueContextData>({} as InputValueContextData);
+export const CardValueContext = createContext<ICardContextData>({} as ICardContextData);
 
 
-export function InputValueProvider({ children }: InputValueProps) {
-    const [value, setValue] = useState<IValue>({
+export function CardValueProvider({ children }: ICardProps) {
+    const [cardData, setCardData] = useState<ICard>({
         numero: '**** **** **** ****',
         nome: 'NOME DO TITULAR',
         vencimento: '00/00',
-    } as IValue)
+    } as ICard)
 
 
     function handleToggleInput(newValue: string, key: number) {
@@ -44,47 +43,40 @@ export function InputValueProvider({ children }: InputValueProps) {
     }
 
     function handleToggleNumero(newValue: string) {
-        const valor = { ...value };
+        const valor = { ...cardData };
 
         valor.numero = newValue;
 
-        setValue(valor)
+        setCardData(valor)
     }
 
     function handleToggleNome(newValue: string) {
-        const valor = { ...value };
+        const valor = { ...cardData };
 
         valor.nome = newValue.toUpperCase();
 
-        setValue(valor)
+        setCardData(valor)
     }
 
     function handleToggleVencimento(newValue: string) {
-        const valor = { ...value };
+        const valor = { ...cardData };
 
         valor.vencimento = newValue;
 
-        setValue(valor)
+        setCardData(valor)
     }
 
-    function handleToggleCVV(newValue: string) {
-        const valor = { ...value };
-
-        valor.cvv = newValue;
-
-        setValue(valor)
-    }
 
 
     return (
-        <InputValueContext.Provider value={{ handleToggleInput, value }}>
+        <CardValueContext.Provider value={{ handleToggleInput, cardData }}>
             {children}
-        </InputValueContext.Provider>
+        </CardValueContext.Provider>
     )
 }
 
-export function useInputValue() {
-    const context = useContext(InputValueContext)
+export function useCardValue() {
+    const context = useContext(CardValueContext)
 
     return context;
 }

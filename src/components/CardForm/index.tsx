@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { useInputValue } from '../../hooks/InputValueContext';
+import { useCardValue } from '../../hooks/CardValueContext';
 import { Button, Form, Input } from './styles';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
@@ -26,7 +26,7 @@ export function CardForm() {
     const { register, handleSubmit, reset, formState: { errors } } = useForm<ICardInformation>({
         resolver: yupResolver(schema)
     });
-    const { handleToggleInput } = useInputValue()
+    const { handleToggleInput } = useCardValue()
 
     function onSubmit(data: ICardInformation) {
         console.log(data);

@@ -5,6 +5,11 @@ export const Container = styled.div`
     justify-content: space-between;
     max-width: 1250px;
     margin: 0 auto;
+
+    @media (max-width: 425px) {
+        flex-direction: column;
+        align-items: center;
+    }
     
 `;
 
@@ -25,6 +30,15 @@ export const LeftContainer = styled.div`
             font-size: 13px;
             margin-left: 11px;
         }
+    }
+
+
+    @media (max-width: 425px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 264px;
+        width: 425px;
     }
 `;
 
@@ -54,6 +68,10 @@ export const TitleSection = styled.div`
             font-size: 24px;
             margin-left: 28px;
         }
+
+        @media (max-width: 425px) {
+            width: 286px;
+            }
 `;
 
 interface IHeaderSectionProps {
@@ -85,6 +103,8 @@ export const HeaderSection = styled.div<IHeaderSectionProps>`
             align-items: center;
             justify-content: center;
         }
+
+
 `;
 
 
@@ -101,6 +121,49 @@ export const RightContainer = styled.div`
         justify-content: space-between;
         padding: 46px 62px 0 0;
        }
+
+
+
+        @media (max-width: 1024px) {
+            width: 500px;
+
+            header {
+                font-size: 16px;
+            }
+
+            span > div {
+                min-height: 20px;
+                min-width: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            width: 360px;
+
+            header {
+                font-size: 14px;
+                padding: 46px 30px 0 0;
+            }
+
+            span > div {
+                min-height: 18px;
+                min-width: 18px;
+            }
+        }
+
+        @media (max-width: 425px) {
+            width: 290px;
+            padding-top: 50px;
+
+            header {
+                display: none;
+            }
+
+            span > div {
+                min-height: 18px;
+                min-width: 18px;
+            }
+        }
 
    
 `;

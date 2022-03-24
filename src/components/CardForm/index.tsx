@@ -1,17 +1,16 @@
+import { yupResolver } from '@hookform/resolvers/yup';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import * as yup from "yup";
 import { useCardValue } from '../../hooks/CardValueContext';
 import { Button, Form, Input, InputWrapper, Select } from './styles';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from "yup";
 
-
-interface ICardInformation {
-    cardNumber: string;
+export interface ICardInformation {
+    cardNumber: number;
     ownerName: string;
     date: string;
     numberOfInstallments: string;
-    cvv: string;
+    cvv: number;
 };
 
 const schema = yup.object({
@@ -33,12 +32,15 @@ export function CardForm() {
         reset();
     }
 
+
     return (
         <>
             <Form onSubmit={handleSubmit(onSubmit)}>
+
                 <Input
                     {...register('cardNumber')}
                     placeholder='Numero do cartão'
+                    type="text"
                     maxLength={16}
                     onChange={event => handleToggleInput(event.target.value, 1)}
                     validationError={errors.cardNumber ? true : false}
@@ -70,7 +72,7 @@ export function CardForm() {
                             {...register('cvv')}
                             placeholder='CVV'
                             maxLength={3}
-                            type='text'
+                            type='number'
                             validationError={errors.cvv ? true : false}
                         />
                         <small>{errors.cvv?.message}</small>

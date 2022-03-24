@@ -5,12 +5,12 @@ export const Container = styled.div`
     justify-content: space-between;
     
 `;
-interface HeaderSectionProps {
+interface IHeaderSectionProps {
     hasImage: boolean
 }
 
 
-export const HeaderSection = styled.div<HeaderSectionProps>`
+export const HeaderSection = styled.div<IHeaderSectionProps>`
 
     span {
             display: flex;
@@ -86,8 +86,9 @@ export const TitleSection = styled.div`
 
 
 export const RightContainer = styled.div`
-       color: var(--primary);
-       width: 1000px;
+       color: var(--primary); //TODO: VERIFICAR COR DO HEADER
+
+       width: 50vw;
        
        header {
         

@@ -85,7 +85,7 @@ export function CardForm() {
                     <option value="1">1x R$ 5.000,00 sem juros</option>
                 </select>
 
-                <Button type="submit">enviar</Button>
+                <Button type="submit">Continuar</Button>
             </Form>
 
         </>

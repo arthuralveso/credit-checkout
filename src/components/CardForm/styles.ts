@@ -4,6 +4,7 @@ export const Form = styled.form`
 margin-top: 50px;
 display: flex;
 flex-direction: column;
+padding-right: 5px;
 
 small {
     color: var(--danger);
@@ -56,12 +57,19 @@ export const Button = styled.button`
     font-size: 16px;
     color: var(--text-light);
     margin-top: 50px;
-    
+    border-radius: 4px;
+    padding: 15px;
 
+    align-self: flex-end;
+    
     width: 150px;
     height: 50px;
 
-    &::placeholder {
-    color: var(--input-color)
-}
+    color: var(--text-light);
+
+    transition: all 0.2s;
+
+    &:hover {
+      filter: brightness(0.9);
+    }
 `;

@@ -4,12 +4,7 @@ export const Container = styled.div`
     height: 302px;
     width: 492px;
     border-radius: 1rem;
-
-    position: absolute;
-    left: 1%;
-    right: 0%;
-    top: 49%;
-    bottom: 0%;
+    margin-top: 31px;
 
     background: var(--card-background);
     color: var(--text-light);

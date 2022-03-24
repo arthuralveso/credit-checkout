@@ -5,6 +5,7 @@ import cardIcon from '../../assets/card-icon.svg'
 import rightArrow from '../../assets/right-arrow.svg'
 import confirmIcon from '../../assets/confirm-icon.svg'
 import { CardForm } from '../../components/CardForm'
+import { Card } from '../../components/Card'
 
 export function Layout() {
     return (
@@ -22,6 +23,8 @@ export function Layout() {
 
                     <p>Adicione um novo cartão de crédito</p>
                 </TitleSection>
+
+                <Card />
 
 
             </LeftContainer>
@@ -44,7 +47,7 @@ export function Layout() {
                             <div>
                                 <p>2</p>
                             </div>
-                            <p>Carrinho</p>
+                            <p>Pagamento</p>
                         </span>
                     </HeaderSection>
 
@@ -55,7 +58,7 @@ export function Layout() {
                             <div>
                                 <p>3</p>
                             </div>
-                            <p>Carrinho</p>
+                            <p>Confirmação</p>
                         </span>
                     </HeaderSection>
 

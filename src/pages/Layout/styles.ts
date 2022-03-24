@@ -3,36 +3,9 @@ import styled from 'styled-components';
 export const Container = styled.div`
     display: flex;
     justify-content: space-between;
+    max-width: 1250px;
+    margin: 0 auto;
     
-`;
-interface IHeaderSectionProps {
-    hasImage: boolean
-}
-
-
-export const HeaderSection = styled.div<IHeaderSectionProps>`
-
-    span {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            
-            div {
-                margin-right: 8px;
-            }
-        }
-
-        span > div {
-            min-height: 20px;
-            min-width: 20px;
-            border-radius: 50%;
-            background: ${({ hasImage }) => hasImage && '#4BDE95'};
-            border: 1px solid #4BDE95;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
 `;
 
 export const LeftContainer = styled.div`
@@ -83,15 +56,45 @@ export const TitleSection = styled.div`
         }
 `;
 
+interface IHeaderSectionProps {
+    hasImage: boolean
+}
+
+
+export const HeaderSection = styled.div<IHeaderSectionProps>`
+
+    span {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            
+            div {
+                margin-right: 8px;
+            }
+        }
+
+        span > div {
+            min-height: 30px;
+            min-width: 30px;
+            border-radius: 50%;
+            background: ${({ hasImage }) => hasImage && '#4BDE95'};
+            border: 1px solid #4BDE95;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+`;
+
 
 
 export const RightContainer = styled.div`
-       color: var(--primary); //TODO: VERIFICAR COR DO HEADER
+       color: var(--primary);
+       width: 700px;
 
-       width: 50vw;
        
        header {
-        
         display: flex;
         font-weight: 400;
         font-size: 20px;

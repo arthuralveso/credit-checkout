@@ -1,16 +1,16 @@
 import React from 'react';
-import { CardValueProvider } from './hooks/CardValueContext';
+import { CardInformationProvider } from './hooks/CardInformationsContext';
 import { Layout } from './pages/Layout';
 import { GlobalStyle } from './styles/global';
 
 
 export function App() {
   return (
-    <CardValueProvider>
+    <CardInformationProvider>
       <Layout />
 
       <GlobalStyle />
-    </CardValueProvider>
+    </CardInformationProvider>
   );
 }
 

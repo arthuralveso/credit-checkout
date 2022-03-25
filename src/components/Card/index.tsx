@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { useCardValue } from '../../hooks/CardValueContext';
+import { useCardInformation } from '../../hooks/CardInformationsContext';
 import { CardInformation, Container } from './styles';
 import visa from '../../assets/icon-visa.svg'
 import master from '../../assets/icon-mastercard.svg'
 
 export function Card() {
-    const { cardData } = useCardValue();
+    const { cardData } = useCardInformation();
     const [change, setChange] = useState<boolean>(false);
 
     const cardbrand: any = {
@@ -26,14 +26,14 @@ export function Card() {
     return (
 
         <Container isChanged={change}>
-            {getBrand(cardData.numero)}
+            {getBrand(cardData.cardNumber)}
 
 
             <CardInformation>
-                <p>{cardData.numero}</p>
+                <p>{cardData.cardNumber}</p>
                 <span>
-                    <h4>{cardData.nome}</h4>
-                    <h4>{cardData.vencimento}</h4>
+                    <h4>{cardData.ownerName}</h4>
+                    <h4>{cardData.expirationDate}</h4>
                 </span>
 
             </CardInformation>

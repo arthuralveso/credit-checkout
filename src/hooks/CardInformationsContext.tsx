@@ -8,7 +8,9 @@ interface ICardInformations {
     cardNumber: string;
     ownerName: string;
     expirationDate: string;
-}
+    numberOfInstallments: string;
+    cvv: string;
+};
 
 interface ICardInformationContextData {
     cardData: ICardInformations;
@@ -23,6 +25,8 @@ export function CardInformationProvider({ children }: ICardInformationProps) {
         cardNumber: '**** **** **** ****',
         ownerName: 'NOME DO TITULAR',
         expirationDate: '00/00',
+        numberOfInstallments: '',
+        cvv: '',
     } as ICardInformations)
 
 
@@ -34,7 +38,7 @@ export function CardInformationProvider({ children }: ICardInformationProps) {
                 valor.cardNumber = newValue
                 return setCardData(valor)
             case 2:
-                valor.ownerName = newValue
+                valor.ownerName = newValue.toUpperCase();
                 return setCardData(valor)
             case 3:
                 valor.expirationDate = newValue

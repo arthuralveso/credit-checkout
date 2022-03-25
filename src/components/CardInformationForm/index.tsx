@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from "yup";
 import { useCardInformation } from '../../hooks/CardInformationsContext';
+import { cardNumberMask, cvvMask, expirationDateMask } from './mask';
 import { Button, Form, Input, InputWrapper, Select, Wrapper } from './styles';
 
 export interface ICardInformation {
@@ -46,10 +47,10 @@ export function CardInformationForm() {
                     {...register('cardNumber')}
                     name='cardNumber'
                     type="text"
-                    maxLength={16}
+                    value={cardInformation.cardNumber}
                     onChange={event => [
-                        handleToggleInput(event.target.value, 1),
-                        setCardInformation({ ...cardInformation, [event.target.name]: event.target.value })
+                        handleToggleInput(cardNumberMask(event.target.value), 1),
+                        setCardInformation({ ...cardInformation, [event.target.name]: cardNumberMask(event.target.value) })
                     ]}
                     validationError={errors.cardNumber ? true : false}
                 />
@@ -62,6 +63,7 @@ export function CardInformationForm() {
                     {...register('ownerName')}
                     maxLength={15}
                     minLength={2}
+                    type='text'
                     name='ownerName'
                     onChange={event => [
                         handleToggleInput(event.target.value, 2),
@@ -77,11 +79,12 @@ export function CardInformationForm() {
                 <Wrapper>
                     <Input
                         {...register('date')}
-                        maxLength={5}
+                        type='text'
+                        value={cardInformation.date}
                         name='date'
                         onChange={event => [
                             handleToggleInput(event.target.value, 3),
-                            setCardInformation({ ...cardInformation, [event.target.name]: event.target.value })
+                            setCardInformation({ ...cardInformation, [event.target.name]: expirationDateMask(event.target.value) })
                         ]}
                         validationError={errors.date ? true : false}
                     />
@@ -93,11 +96,12 @@ export function CardInformationForm() {
                     <Input
                         {...register('cvv')}
                         maxLength={3}
-                        type='number'
+                        type='text'
                         name='cvv'
+                        value={cardInformation.cvv}
                         validationError={errors.cvv ? true : false}
                         onChange={event =>
-                            setCardInformation({ ...cardInformation, [event.target.name]: event.target.value })
+                            setCardInformation({ ...cardInformation, [event.target.name]: cvvMask(event.target.value) })
                         }
                     />
                     <label className={cardInformation.cvv && 'filled'} htmlFor='cvv' >CVV</label>

@@ -4,7 +4,7 @@ import leftArrow from '../../assets/back-arrow.svg'
 import cardIcon from '../../assets/card-icon.svg'
 import rightArrow from '../../assets/right-arrow.svg'
 import confirmIcon from '../../assets/confirm-icon.svg'
-import { CardForm } from '../../components/CardForm'
+import { CardInformationForm } from '../../components/CardInformationForm'
 import { Card } from '../../components/Card'
 
 export function Layout() {
@@ -64,7 +64,7 @@ export function Layout() {
 
                 </header>
 
-                <CardForm />
+                <CardInformationForm />
 
 
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useCardInformation } from '../../hooks/CardInformationsContext';
+import { useCardInformation } from '../../contexts/CardInformationsContext';
 import { CardInformation, Container } from './styles';
 import visa from '../../assets/icon-visa.svg'
 import master from '../../assets/icon-mastercard.svg'

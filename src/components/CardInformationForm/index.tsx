@@ -2,7 +2,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from "yup";
-import { useCardInformation } from '../../hooks/CardInformationsContext';
+import { useCardInformation } from '../../contexts/CardInformationsContext';
+import { api } from '../../services/api';
 import { cardNumberMask, cvvMask, expirationDateMask } from './mask';
 import { Button, Form, Input, InputWrapper, Select, Wrapper } from './styles';
 
@@ -35,8 +36,10 @@ export function CardInformationForm() {
         cvv: '',
     });
 
-    function onSubmit(data: ICardInformation) {
-        console.log(data);
+    async function onSubmit(data: ICardInformation) {
+        const response = await api.post('/pagar', data);
+
+        console.log(response.data)
         reset();
     }
 

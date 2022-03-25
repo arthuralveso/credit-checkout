@@ -1,0 +1,12 @@
+{
+    "pagar": [
+        {
+            "id": 1,
+            "cardNumber": "",
+            "ownerName": "",
+            "date": "",
+            "numberOfInstallments": "",
+            "cvv": ""
+        }
+    ]
+}

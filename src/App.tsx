@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardInformationProvider } from './hooks/CardInformationsContext';
+import { CardInformationProvider } from './contexts/CardInformationsContext';
 import { Layout } from './pages/Layout';
 import { GlobalStyle } from './styles/global';
 

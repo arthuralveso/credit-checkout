@@ -14,9 +14,15 @@ export const Container = styled.div<IContainerProps>`
     flex-direction: column;
     justify-content: flex-end;
 
-    background: ${({ isChanged }) => isChanged ? 'var(--card-background-filled)' : 'var(--card-background-empty)'};
+    /* background: ${({ isChanged }) => isChanged ? 'var(--card-background-filled)' : 'var(--card-background-empty)'}; */
+    background: var(--card-background-filled);
     color: var(--text-light);
     padding: 46px;
+
+    img {
+        width: 140px;
+        margin-left: -15px;
+    }
 
 
     @media (max-width: 1024px) {
@@ -27,11 +33,19 @@ export const Container = styled.div<IContainerProps>`
     @media (max-width: 768px) {
         height: 221px;
         width: 374px;
+
+        img {
+            width: 100px;
+        }
     }
     @media (max-width: 425px) {
         height: 172px;
         width: 280px;
         font-size: 18px;
+
+        img {
+            width: 70px;
+        }
     }
 
 `;
@@ -59,20 +73,24 @@ export const CardInformation = styled.div`
     }
 
     @media (max-width: 768px) {
+        margin-top: 10px;
+
         p {
-            font-size: 22px;
+            font-size: 20px;
+            margin-bottom: 20px;
         }
 
         span > h4 {
-            font-size: 18px;
+            font-size: 16px;
         }
     }
 
 
     @media (max-width: 425px) {
+        margin-top: 7px;
         p {
             font-size: 14px;
-            margin-bottom: 28px;
+            margin-bottom: 15px;
         }
 
         span > h4 {

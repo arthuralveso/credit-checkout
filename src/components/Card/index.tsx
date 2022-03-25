@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { useCardValue } from '../../hooks/CardValueContext';
 import { CardInformation, Container } from './styles';
+import visa from '../../assets/icon-visa.svg'
+import master from '../../assets/icon-mastercard.svg'
 
 export function Card() {
     const { cardData } = useCardValue();
     const [change, setChange] = useState<boolean>(false);
 
     const cardbrand: any = {
-        '63': <span>Elo</span>,
-        '55': <span>Master</span>,
-        '41': <span>Visa</span>,
-        '60': <span>HiperCard</span>,
+        '55': <img src={master} alt="visa-logo" />,
+        '41': <img src={visa} alt="visa-logo" />,
     }
 
     function getBrand(number: string) {

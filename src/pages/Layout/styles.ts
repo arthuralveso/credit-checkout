@@ -13,7 +13,7 @@ export const Container = styled.div`
     
 `;
 
-export const LeftContainer = styled.div`
+export const LeftWrap = styled.div`
     height: 100vh;
     width: 325px;
     background: var(--primary);
@@ -74,12 +74,12 @@ export const TitleSection = styled.div`
             }
 `;
 
-interface IHeaderSectionProps {
+interface IPurchaseStepsProps {
     hasImage: boolean
 }
 
 
-export const HeaderSection = styled.div<IHeaderSectionProps>`
+export const PurchaseSteps = styled.div<IPurchaseStepsProps>`
 
     span {
             display: flex;
@@ -109,7 +109,7 @@ export const HeaderSection = styled.div<IHeaderSectionProps>`
 
 
 
-export const RightContainer = styled.div`
+export const RightWrap = styled.div`
        color: var(--primary);
        width: 700px;
 

@@ -6,13 +6,37 @@ display: flex;
 flex-direction: column;
 padding-right: 5px;
 
+
 small {
     color: var(--danger);
 }
 
-
-
 `;
+
+export const Wrapper = styled.div`
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    label {
+        color: var(--input-color);
+        position: absolute;
+        pointer-events: none;
+        transform: translate(0, 50px) scale(1);
+        transform-origin: top left;
+        transition: 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+        font-size: 16px;
+        line-height: 1;
+    }
+
+    &:focus-within label {
+        transform: translate(0, 30px) scale(0.75);
+    }
+    .filled {
+        transform: translate(0, 30px) scale(0.75);
+    }
+`;
+
 
 export const InputWrapper = styled.div`
     display: flex;
@@ -67,6 +91,8 @@ export const Input = styled.input<IInputProps>`
     color: var(--input-color)
 }
 `;
+
+
 
 export const Select = styled.select<IInputProps>`
     outline: none;

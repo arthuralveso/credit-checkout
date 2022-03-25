@@ -25,7 +25,7 @@ export function Card() {
 
     return (
 
-        <Container isChanged={change}>
+        <Container brand={getBrand(cardData.cardNumber)}>
             {getBrand(cardData.cardNumber)}
 
 

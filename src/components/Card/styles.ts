@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 interface IContainerProps {
-    isChanged: boolean
+    brand: string
 }
 
 export const Container = styled.div<IContainerProps>`
@@ -12,10 +12,12 @@ export const Container = styled.div<IContainerProps>`
     box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-end;    
 
-    /* background: ${({ isChanged }) => isChanged ? 'var(--card-background-filled)' : 'var(--card-background-empty)'}; */
-    background: var(--card-background-filled);
+    transition: color ease-in-out 0.5s;
+
+    
+    background: ${({ brand }) => brand ? 'var(--card-background-filled); ' : 'var(--card-background-empty)'};
     color: var(--text-light);
     padding: 46px;
 

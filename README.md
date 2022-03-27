@@ -1,7 +1,11 @@
 # Bexs Front-end
 
+ Aplicação web desenvolvida com React  utilizando styled-components, react-hook-form e yup
+
+
 # Pré-requisitos
-	 Yarn ou NPM
+
+- Yarn ou NPM
 
 # Instalação
 
